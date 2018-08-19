@@ -17,8 +17,8 @@ contract BlockchainForPeace {
     event Donate(address indexed from, uint amount, string message);
     
     //constructor to initiate the address of the charity being donated to
-    constructor (address _charity) public {
-        charity = _charity;
+    constructor () public {
+        charity = msg.sender;
     }
    
     // payable function which auto transfers money to charity address, collects the value and increases the total value counter.
