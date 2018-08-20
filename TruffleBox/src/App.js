@@ -75,6 +75,7 @@ class App extends Component {
 
   createMessage = (message, ethValue) => {
     this.state.BlockchainForPeaceInstance.messageForPeace(message, { from: this.state.account, value: ethValue})
+
   }
 
   getDonationList = async (contractInstance, numOfDonations) => {
@@ -87,6 +88,11 @@ class App extends Component {
     return promiseArr.map( ([ donorAddress, message, value ]) => ({ donorAddress, message, value: value.toString() / 10 ** 18 }))
   }
 
+  getRaised = async (BlockchainForPeaceInstance, uint) => {
+    await BlockchainForPeaceInstance.getRaised()
+    return this.state.BlockchainForPeaceInstance.getRaised(uint)
+  }
+
   render() {
     return (
       <div className="App">
@@ -95,6 +101,7 @@ class App extends Component {
           <div className='container'>
             <DonationInputs createMessage={this.createMessage} />
           </div>
+          <h1>Raised = {this.state.getRaised}</h1>
           <div className="container" >
             <LeaderBoard donations={this.state.donations} />
           </div>

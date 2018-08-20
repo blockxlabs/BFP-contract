@@ -18,7 +18,7 @@ class DonationInputs extends Component {
   }
 
   handleMessageChange = (e) => {
-    if (e.target.value.length < 800) {
+    if (e.target.value.length <= 100) {
       this.setState({
         message: e.target.value,
         messageLength: e.target.value.length,
@@ -56,13 +56,13 @@ class DonationInputs extends Component {
         <div className="field">
           <label className="label level">
             Message:
-         <p className="help is-info">{800 - this.state.messageLength} Char Left</p>
+         <p className="help is-info">{100 - this.state.messageLength} Char Left</p>
           </label>
           <div className="control has-icons-left">
             <textarea className="textarea"
               type="text"
               placeholder="What message would you like to be posted to the blockchain forever..."
-              maxLength="800"
+              maxLength="100"
               onChange={this.handleMessageChange} />
           </div>
         </div>

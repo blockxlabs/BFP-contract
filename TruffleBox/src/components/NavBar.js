@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
+import Block from './blockx.png';
 
 
 class NavBar extends Component {
@@ -19,8 +20,8 @@ class NavBar extends Component {
 
 
 
-          <a className='navbar-item' href="https://benjirichards.com">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="logo" width="224" height="56" />
+          <a className='navbar-item' href="https://blockxlabs.com">
+            <img src={Block} width="150" height="56" />
           </a>
 
 
@@ -33,11 +34,7 @@ class NavBar extends Component {
         <div id="navbarExampleTransparentExample" className='navbar-menu'>
           <div className="navbar-start">
 
-            <a to='/auditsLanding' className='navbar-item'>
-              About
-            </a>
-
-            <a to='/hackathons' className='navbar-item'>
+            <a to='/hackathons' className='navbar-item' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>
               Stuff
             </a>
 
@@ -48,17 +45,17 @@ class NavBar extends Component {
               <div className="field is-grouped">
                 
                 <p className="control">
-                  <a className="button is-info is-outlined" href='https://bountyone.io/aboutaudits'>
+                  <a className="button is-info" href='https://meetup.com'>
                     <span>
-                      About Jesse
+                      About The event 
                     </span>
                   </a>
                 </p>
                 
                 <p className="control">
-                  <a className="button is-info" href='https://bountyone.io/auditsapply'>
+                  <a className="button is-info" href='https://www.doctorswithoutborders.org/'>
                     <span>
-                      Don't CLICK D:
+                      About the Charity 
                     </span>
                   </a>
                 </p>
