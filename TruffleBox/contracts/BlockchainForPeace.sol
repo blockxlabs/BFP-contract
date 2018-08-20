@@ -25,7 +25,7 @@ contract BlockchainForPeace {
         charity = msg.sender;
     }
    
-    // payable function which auto transfers money to charity address, collects the value and increases the total value counter.
+    // payable function which auto transfers money to charity address, collects the value and increases the total value counter. Also allows for anonoymous donations
      function fallback() payable public {
         raised += msg.value;
         charity.transfer(msg.value);
@@ -34,9 +34,6 @@ contract BlockchainForPeace {
     function messageForPeace(string _message) payable public {
         require(msg.value > 0);
         donations.push(Donation(msg.sender, _message, msg.value));
-        // Donations[msg.sender].value += msg.value;
-        // require(donors[msg.sender].value != 0);
-        // donors[msg.sender].message = _message;
         charity.transfer(msg.value);
         raised += msg.value;
         emit Donate(msg.sender, msg.value, _message);

@@ -84,7 +84,7 @@ class App extends Component {
     for (let i = 0; i < numOfDonations; i++ ) 
         { promiseArr[i] = await contractInstance.getDonation(i) }
 
-    return promiseArr.map( ([ donorAddress, message, value ]) => ({ donorAddress, message, value: value.toString() }))
+    return promiseArr.map( ([ donorAddress, message, value ]) => ({ donorAddress, message, value: value.toString() / 10 ** 18 }))
   }
 
   render() {
