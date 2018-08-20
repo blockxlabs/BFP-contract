@@ -47,4 +47,8 @@ contract BlockchainForPeace {
     function getDonationLength() public view returns (uint){
         return donations.length;
     }
+
+     function getRaised() public view returns (uint){
+        return raised;
+    }
 }

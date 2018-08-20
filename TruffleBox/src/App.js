@@ -92,12 +92,13 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <section className="section" >
-          <div className="container" >
-            <LeaderBoard donations={this.state.donations} />
-          </div>
           <div className='container'>
             <DonationInputs createMessage={this.createMessage} />
           </div>
+          <div className="container" >
+            <LeaderBoard donations={this.state.donations} />
+          </div>
+          
         </section>
       </div>
     );
