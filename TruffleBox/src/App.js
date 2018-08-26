@@ -26,6 +26,7 @@ class App extends Component {
       BlockchainForPeaceInstance: null,
       totalNumOfDonations: 0,
       donations: [],
+      raised: 0
     }
     this.createMessage = this.createMessage.bind(this)
   }
@@ -54,6 +55,7 @@ class App extends Component {
     const BlockchainForPeaceInstance = await BlockchainForPeace.deployed()
     const totalNumOfDonations = await BlockchainForPeaceInstance.getDonationLength.call()
                                             .then(result => result.toString())
+                                   
 
     const donations = await this.getDonationList(BlockchainForPeaceInstance, totalNumOfDonations)
 
@@ -65,8 +67,7 @@ class App extends Component {
         })
       }, 100); 
     })
-  }
-
+}
   getActiveMetaMaskAccount = () => {
     this.state.web3.eth.getAccounts( (err, accounts) => {
         this.setState({ account : accounts[0]})
@@ -82,18 +83,21 @@ class App extends Component {
     // fetch Donations and Rebuild Array of Donations Object/Struct
     const promiseArr = [];
   
-    for (let i = 0; i < numOfDonations; i++ ) 
-        { promiseArr[i] = await contractInstance.getDonation(i) }
+    for (let i = 0; i < numOfDonations; i++ ) { 
+      promiseArr[i] = await contractInstance.getDonation(i) 
+    }
 
     return promiseArr.map( ([ donorAddress, message, value ]) => ({ donorAddress, message, value: value.toString() / 10 ** 18 }))
   }
 
-  getRaised = async (BlockchainForPeaceInstance, uint) => {
-    await BlockchainForPeaceInstance.getRaised()
-    return this.state.BlockchainForPeaceInstance.getRaised(uint)
-  }
+ getRaised = async () => {
+   const raised = await this.state.BlockchainForPeaceInstance.getRaised()
+   this.setState({raised: raised / 10 ** 18})
+}
+  
 
   render() {
+    this.getRaised().then(x => console.log(x))
     return (
       <div className="App">
         <NavBar />
@@ -101,7 +105,9 @@ class App extends Component {
           <div className='container'>
             <DonationInputs createMessage={this.createMessage} />
           </div>
-          <h1>Raised = {this.state.getRaised}</h1>
+          <h1>
+            Raised={this.state.raised} ethers
+          </h1>
           <div className="container" >
             <LeaderBoard donations={this.state.donations} />
           </div>
