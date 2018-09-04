@@ -45,10 +45,15 @@ class App extends Component {
       })
       // Instantiate contract once web3 provided.
       this.instantiateContract()
+
+      // TODO: Update Raised State
+
     })
     .catch(() => {
       console.log('Error finding web3.')
     })
+
+ 
   }
 
   instantiateContract = async () => {
@@ -80,6 +85,8 @@ class App extends Component {
   createMessage = (message, ethValue) => {
     this.state.BlockchainForPeaceInstance.messageForPeace(message, { from: this.state.account, value: ethValue})
 
+    // TODO: Update Raised state
+
   }
 
   getDonationList = async (contractInstance, numOfDonations) => {
@@ -95,6 +102,7 @@ class App extends Component {
 
  getRaised = async () => {
    const raised = await this.state.BlockchainForPeaceInstance.getRaised()
+   // get donation list
    this.setState({raised: raised / 10 ** 18})
 }
   
