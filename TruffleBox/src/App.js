@@ -6,6 +6,9 @@ import 'bulma/css/bulma.css';
 import NavBar from './components/NavBar.js';
 import DonationInputs from './components/DonationInputs.js';
 import LeaderBoard from './components/LeaderBoard.js';
+import DialogScrollable from './components/dialog.js';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 
 import './css/oswald.css'
 import './css/open-sans.css'
@@ -97,23 +100,28 @@ class App extends Component {
   
 
   render() {
-    this.getRaised().then(x => console.log(x))
+    this.getRaised().then(x =>(x))
     return (
+      <MuiThemeProvider>       
       <div className="App">
-        <NavBar />
+      <DialogScrollable />
+       <NavBar />
         <section className="section" >
           <div className='container'>
             <DonationInputs createMessage={this.createMessage} />
           </div>
           <h1>
-            Raised={this.state.raised} ethers
+            Raised = {this.state.raised} ethers
           </h1>
           <div className="container" >
             <LeaderBoard donations={this.state.donations} />
           </div>
           
         </section>
+
       </div>
+     </MuiThemeProvider>
+
     );
   }
 }
