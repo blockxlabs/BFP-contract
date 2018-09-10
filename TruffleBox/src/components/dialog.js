@@ -60,17 +60,18 @@ export default class DialogScrollable extends React.Component {
         >
          <h1><a>Welcome to the Blockchain For Peace!</a></h1>
          <p class="subtitle" style={style}>ONLY DONATE ETHER!!!!!!!!</p>
-         <p class="subtitle" style={style}>Contract address ""</p>
-         <p class="subtitle" style={style}>Charity address ""</p>
+         <p class="subtitle" style={style}>Contract address "0x977116807902bd4d5d763dA7aa43dbb4e408259b"</p>
+         <p class="subtitle" style={style}>Charity address "0xaf208FF43D2A265E047D52C9F54c753DB86D9D11"</p>
          <br></br>
          <h2 class="subtitle"></h2>
-         <h3 class="subtitle">Blockchain For Peace is a probono event that will be held on Sunday September 23</h3>
-         <p>The goal is to raise money for "insert charity"</p>
+         <p>Blockchain for Peace is a probono event that will be held on Friday September 21, 2018 at 6 pm.</p>
+         <p>The goal is to raise $10,000 in Ethereum for Dignitas International. Funds will go to their Indigenous Health Partners Program which provides health services to Indigenous Communities in Ontario.</p>
          <p></p>
-         <p>When you donate through our portal you can write a message for peace that will be recorded on the blockchain for ever. Our front end will also list all donations and messages.</p>
+         <p>When you donate through this portal, you will have the opportunity to write a permanent message of peace that will be recorded on the blockchain forever and see the message in real-time. </p>
 
-         <p>If you want to donate anonomyously that is cool too you can interact with the fallback function.</p>
-         <p>The easiest way to use our frontend is to get metamask at metamask.io and as you input information and click donate it will prompt you</p>
+         <p>Anonymous Donations are also welcome. Just send your value to the fallback function manually.</p>
+         <p>To donate, please download Metamask at metamask.io.</p>
+         <p>For more information, visit our website at www.blockchainforpeace.ca</p>
          
         </Dialog>
       </div>

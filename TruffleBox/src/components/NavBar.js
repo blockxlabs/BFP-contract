@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bulma/css/bulma.css';
 import Block from './blockx.png';
+import Peace from './peace.png'
 
 
 class NavBar extends Component {
@@ -20,8 +21,8 @@ class NavBar extends Component {
 
 
 
-          <a className='navbar-item' href="https://blockxlabs.com">
-            <img src={Block} width="150" height="56" />
+          <a className='navbar-item' href="https://www.blockchainforpeace.ca">
+            <img src={Peace} width="180" height="70" />
           </a>
 
 

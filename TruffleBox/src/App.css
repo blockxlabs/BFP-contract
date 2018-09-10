@@ -41,7 +41,7 @@ code {
 .navbar {
   position: fixed;
   padding: 5px;
-  background: rgba(166, 194, 6, 0.712);
+  background: #0075C1;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
 
@@ -52,7 +52,7 @@ code {
 .navbar a:active,
 .navbar a:focus,
 .navbar a:hover {
-  background: #3b7953;
+  background: #0075C1;
 }
 
 .navbar .pure-menu-heading {
