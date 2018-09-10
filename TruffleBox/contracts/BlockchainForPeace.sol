@@ -22,7 +22,7 @@ contract BlockchainForPeace {
     
     //constructor to initiate the address of the charity being donated to
     constructor () public {
-        charity = msg.sender;
+        charity = 0xaf208FF43D2A265E047D52C9F54c753DB86D9D11;
     }
    
     // payable function which auto transfers money to charity address, collects the value and increases the total value counter. Also allows for anonoymous donations

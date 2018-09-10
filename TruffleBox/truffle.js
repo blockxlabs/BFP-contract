@@ -1,18 +1,19 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
 
-var mnemonic = "congress drink plate find secret drip pulse phone turtle size police public";
+var mnemonic = "";
 
 
 
 
 module.exports = {
     networks: {
-      ropsten: {
+      mainnet: {
         provider: function() {
-          return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/69500eb24e3a4bd79fbb8cd1fbb9a3ef")
+          return new HDWalletProvider(mnemonic, "https://mainnet.infura.io/v3/69500eb24e3a4bd79fbb8cd1fbb9a3ef")
         },
-        network_id: 3,
-        gas: 4712389
+        network_id: 1,
+        gas: 4712388,
+        gasPrice: 4000000000
       }   
     },
 };
