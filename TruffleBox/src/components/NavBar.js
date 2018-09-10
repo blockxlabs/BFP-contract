@@ -34,8 +34,8 @@ class NavBar extends Component {
         <div id="navbarExampleTransparentExample" className='navbar-menu'>
           <div className="navbar-start">
 
-            <a to='/hackathons' className='navbar-item' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>
-              Stuff
+            <a to='/hackathons' className='navbar-item' href='https://www.blockchainforpeace.ca'>
+              home
             </a>
 
           </div>
@@ -45,7 +45,7 @@ class NavBar extends Component {
               <div className="field is-grouped">
                 
                 <p className="control">
-                  <a className="button is-info" href='https://meetup.com'>
+                  <a className="button is-info" href='https://www.eventbrite.ca/e/blockchain-for-peace-tickets-50000761624'>
                     <span>
                       About The event 
                     </span>
@@ -53,7 +53,7 @@ class NavBar extends Component {
                 </p>
                 
                 <p className="control">
-                  <a className="button is-info" href='https://www.doctorswithoutborders.org/'>
+                  <a className="button is-info" href='http://dignitasinternational.org/vision/'>
                     <span>
                       About the Charity 
                     </span>
