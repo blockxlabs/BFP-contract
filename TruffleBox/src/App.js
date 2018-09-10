@@ -32,22 +32,21 @@ class App extends Component {
       raised: 0
     }
     this.createMessage = this.createMessage.bind(this)
+
   }
 
-  componentWillMount() {
+  async componentWillMount() {
     // Get network provider and web3 instance.
     // See utils/getWeb3 for more info.
 
     getWeb3
-    .then(results => {
+    .then(async results => {
       this.setState({
         web3: results.web3
-      })
+      }) 
       // Instantiate contract once web3 provided.
-      this.instantiateContract()
-
-      // TODO: Update Raised State
-
+      await this.instantiateContract()
+      await this.getRaised();
     })
     .catch(() => {
       console.log('Error finding web3.')
@@ -64,9 +63,8 @@ class App extends Component {
     const totalNumOfDonations = await BlockchainForPeaceInstance.getDonationLength.call()
                                             .then(result => result.toString())
                                    
-
     const donations = await this.getDonationList(BlockchainForPeaceInstance, totalNumOfDonations)
-
+    
     return this.setState({ BlockchainForPeaceInstance, donations, totalNumOfDonations }, () => {
       //Once the App State is set, I run a check to see if active MetaMask account changed - setInterval Method suggested by MetaMask FAQ https://tinyurl.com/ycokp3h6
       setInterval(() => {
@@ -79,14 +77,15 @@ class App extends Component {
   getActiveMetaMaskAccount = () => {
     this.state.web3.eth.getAccounts( (err, accounts) => {
         this.setState({ account : accounts[0]})
+      
+
     })
 }
 
-  createMessage = (message, ethValue) => {
+  createMessage = async (message, ethValue) => {
     this.state.BlockchainForPeaceInstance.messageForPeace(message, { from: this.state.account, value: ethValue})
 
-    // TODO: Update Raised state
-
+    await this.getRaised();
   }
 
   getDonationList = async (contractInstance, numOfDonations) => {
@@ -101,14 +100,15 @@ class App extends Component {
   }
 
  getRaised = async () => {
-   const raised = await this.state.BlockchainForPeaceInstance.getRaised()
+  const raised = await this.state.BlockchainForPeaceInstance.getRaised()
    // get donation list
-   this.setState({raised: raised / 10 ** 18})
+  this.setState({raised: raised / 10 ** 18})
 }
   
 
   render() {
-    this.getRaised().then(x =>(x))
+    // this.getRaised().then(x =>(x))
+
     return (
       <MuiThemeProvider>       
       <div className="App">

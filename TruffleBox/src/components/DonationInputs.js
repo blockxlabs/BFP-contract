@@ -26,11 +26,11 @@ class DonationInputs extends Component {
     }
   }
 
-  handleDonationSubmit = (e) => {
+  handleDonationSubmit = async (e) => {
     e.preventDefault();
 
     const { message, ethValue } = this.state;
-    this.props.createMessage(message, ethValue);
+    await this.props.createMessage(message, ethValue);
   }
   
   render() {
